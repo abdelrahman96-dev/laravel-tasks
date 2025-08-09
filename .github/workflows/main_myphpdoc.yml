@@ -56,9 +56,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_29506A0DB7334B6CBD12BE81C2E1F10E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8572D2CCF49B47E699C536417F01F02A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F9472361073549F28506396CE9DAD322 }}
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -67,4 +65,5 @@ jobs:
           app-name: 'myphpdoc'
           slot-name: 'Production'
           package: .
+
           
