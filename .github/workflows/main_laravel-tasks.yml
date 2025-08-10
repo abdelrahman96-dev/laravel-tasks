@@ -56,7 +56,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-        auth-type: SERVICE_PRINCIPAL
+        
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -67,4 +67,5 @@ jobs:
           package: .
 
           
+
 
