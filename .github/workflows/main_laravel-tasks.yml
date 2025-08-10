@@ -55,10 +55,8 @@ jobs:
       
       - name: Login to Azure
         uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_27E97C9FA9D74374ABA98E59EE43C400 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2FC1F6DDD7C847C6A0CC134E7A45CE33 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_09967B19568F4214839430905D4EAC06 }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        auth-type: SERVICE_PRINCIPAL
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -67,4 +65,5 @@ jobs:
           app-name: 'laravel-tasks'
           slot-name: 'Production'
           package: .
+
           
