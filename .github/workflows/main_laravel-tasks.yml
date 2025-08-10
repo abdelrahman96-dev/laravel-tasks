@@ -53,9 +53,10 @@ jobs:
         with:
           name: php-app
       
-      - name: Login to Azure
+      - name: Azure Login
         uses: azure/login@v2
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
         
 
       - name: 'Deploy to Azure Web App'
@@ -67,5 +68,6 @@ jobs:
           package: .
 
           
+
 
 
